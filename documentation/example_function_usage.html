@@ -1,0 +1,86 @@
+<pre>
+
+<hr></hr>
+List $PATH variables:
+
+<font color="#06989A"><b>~</b></font> <font color="#4E9A06">c_path_search</font>
+
+  <span style="background-color:#CC0000"><font color="#D3D7CF"><b>** executing command: </b></font></span><span style="background-color:#4E9A06"><font color="#D3D7CF"><b> eval printf $PATH | tr ':' '\n' | grep "" -i | color_line </b></font></span>
+  <span style="background-color:#3465A4"><font color="#D3D7CF"><b>/usr/local/sbin</b></font></span>
+  /usr/local/bin
+  <span style="background-color:#3465A4"><font color="#D3D7CF"><b>/usr/sbin</b></font></span>
+  /usr/bin
+  <span style="background-color:#3465A4"><font color="#D3D7CF"><b>/sbin</b></font></span>
+  /bin
+  <span style="background-color:#3465A4"><font color="#D3D7CF"><b>/usr/games</b></font></span>
+  /usr/local/games
+  <span style="background-color:#3465A4"><font color="#D3D7CF"><b>/snap/bin</b></font></span>
+  /home/apps/jdk1.8/bin
+  <span style="background-color:#3465A4"><font color="#D3D7CF"><b>/home/apps/apache-maven-3.6.0/bin</b></font></span>
+  /home/apps/cassandra/bin
+  <span style="background-color:#3465A4"><font color="#D3D7CF"><b>/home/apps/node-v14-linux-x64/bin</b></font></span>
+  /home/apps/jdk1.7-oracle/bin
+  
+<hr></hr>
+List $PATH variables by filtering:
+
+<font color="#06989A"><b>~</b></font> <font color="#4E9A06">c_path_search</font> <font color="#C4A000">&quot;jdk&quot;</font>     
+
+  <span style="background-color:#CC0000"><font color="#D3D7CF"><b>** executing command: </b></font></span><span style="background-color:#4E9A06"><font color="#D3D7CF"><b> eval printf $PATH | tr ':' '\n' | grep "jdk" -i | color_line </b></font></span>
+  /home/apps/jdk1.8/bin
+  <span style="background-color:#3465A4"><font color="#D3D7CF"><b>/home/apps/jdk1.7-oracle/bin</b></font></span>
+
+<hr></hr>
+Show eternal IP address:
+
+<font color="#06989A"><b>~</b></font> <font color="#4E9A06">c_external_ip</font>
+  
+  <span style="background-color:#CC0000"><font color="#D3D7CF"><b>** executing command: </b></font></span><span style="background-color:#4E9A06"><font color="#D3D7CF"><b> dig +short myip.opendns.com @resolver1.opendns.com </b></font></span>
+  170.12.123.50
+
+<hr></hr>
+You can get help for killing process by given port number:
+
+<font color="#06989A"><b>~</b></font> <font color="#4E9A06">c_port_kill_all_processes_by_port_number_HELP_ONLY</font>
+    
+  <span style="background-color:#12488B"><span style="color:#D0CFCC"><b>-t --&gt; show only process ID</b></span></span>
+  <span style="background-color:#12488B"><span style="color:#D0CFCC"><b>-i --&gt; show only internet connections related process</b></span></span>
+  <span style="background-color:#12488B"><span style="color:#D0CFCC"><b>-9 --&gt; kill forcefully</b></span></span>
+  <span style="background-color:#12488B"><span style="color:#D0CFCC"><b>kill -9 $(lsof -t -i:PORT_NUMBER)</b></span></span>
+
+<hr></hr>
+Force stop all docker containers:
+
+<font color="#06989A"><b>~</b></font> <font color="#4E9A06">c_docker_stop_force_all_containers</font>
+
+  <span style="background-color:#CC0000"><font color="#D3D7CF"><b>** executing command: </b></font></span><span style="background-color:#4E9A06"><font color="#D3D7CF"><b> eval docker stop $(docker ps -a -q) </b></font></span>
+  91c4affd5e4c
+  c98bc17ef484
+  509d47d14623
+  357112d5f672
+  b8541ac8aeb1
+
+<hr></hr>
+You can print any command output with different line color using color_line:
+
+<font color="#06989A"><b>~</b></font> <font color="#4E9A06">ping</font> google.com | <font color="#4E9A06">color_line</font> 
+
+  <span style="background-color:#12488B"><span style="color:#D0CFCC"><b>PING google.com (142.251.140.46) 56(84) bytes of data.</b></span></span>
+  <span style="background-color:#26A269"><span style="color:#D0CFCC"><b>64 bytes from sof04s05-in-f14.1e100.net (142.251.140.46): icmp_seq=1 ttl=114 time=57.8 ms</b></span></span>
+  <span style="background-color:#12488B"><span style="color:#D0CFCC"><b>64 bytes from sof04s05-in-f14.1e100.net (142.251.140.46): icmp_seq=2 ttl=114 time=57.7 ms</b></span></span>
+  <span style="background-color:#26A269"><span style="color:#D0CFCC"><b>64 bytes from sof04s05-in-f14.1e100.net (142.251.140.46): icmp_seq=3 ttl=114 time=57.8 ms</b></span></span>
+  <span style="background-color:#12488B"><span style="color:#D0CFCC"><b>64 bytes from sof04s05-in-f14.1e100.net (142.251.140.46): icmp_seq=4 ttl=114 time=59.1 ms</b></span></span>
+  <span style="background-color:#26A269"><span style="color:#D0CFCC"><b>64 bytes from sof04s05-in-f14.1e100.net (142.251.140.46): icmp_seq=5 ttl=114 time=57.6 ms</b></span></span>
+  <span style="background-color:#12488B"><span style="color:#D0CFCC"><b>64 bytes from sof04s05-in-f14.1e100.net (142.251.140.46): icmp_seq=6 ttl=114 time=57.7 ms</b></span></span>
+  <span style="background-color:#26A269"><span style="color:#D0CFCC"><b>64 bytes from sof04s05-in-f14.1e100.net (142.251.140.46): icmp_seq=7 ttl=114 time=58.5 ms</b></span></span>
+  <span style="background-color:#12488B"><span style="color:#D0CFCC"><b>64 bytes from sof04s05-in-f14.1e100.net (142.251.140.46): icmp_seq=8 ttl=114 time=59.3 ms</b></span></span>
+  <span style="background-color:#26A269"><span style="color:#D0CFCC"><b>64 bytes from sof04s05-in-f14.1e100.net (142.251.140.46): icmp_seq=9 ttl=114 time=58.7 ms</b></span></span>
+
+<font color="#06989A"><b>~</b></font> <font color="#4E9A06">cat</font> <font color="#C4A000">&apos;any_file.txt&apos;</font> | <font color="#4E9A06">color_line</font>
+
+  <span style="background-color:#12488B"><span style="color:#D0CFCC"><b>This is the 1st line of the file</b></span></span>
+  <span style="background-color:#26A269"><span style="color:#D0CFCC"><b>this is the 2nd line of file</b></span></span>
+  <span style="background-color:#12488B"><span style="color:#D0CFCC"><b>this is the 3th line of file</b></span></span>
+  <span style="background-color:#26A269"><span style="color:#D0CFCC"><b>this is the 4th line of file</b></span></span>
+
+</pre>
